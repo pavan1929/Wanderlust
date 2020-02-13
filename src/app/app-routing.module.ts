@@ -20,7 +20,6 @@ const routes: Routes = [
   //for login and register
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
-  {},
 
   //to get packages and hot deals
   //{ path: 'packages/:keyword', component: PackagesComponent },
