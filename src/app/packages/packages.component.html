@@ -1,0 +1,36 @@
+<!-- These are hard coded data provided as an example. 
+    Hot deals have to be dynamically populated from database -->
+
+<div id="details" class="details-section">
+    <div class="row">
+        <div class="card bg-light text-dark package-card">
+            <div class="card-body row">
+                <div class="col-md-4">
+                    <img class="package-image" src="/assets/Thailand.jpg" alt="Thailand Image">
+                </div>
+                <div class="col-md-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Thailand : The Golden Kingdom</h4>
+                        <div class="badge badge-info">11<em> Nights</em></div>
+                        <div class="discount text-danger">5% Instant Discount</div>
+                        <p class="text-dark mb-0">Experience the warm welcome of the Land of Smiles.From bustling Bangkok, you’ll travel north to ancient ruined capitals, local villages, and mountaintop temples to investigate all sides of this vibrant country of contrasts. The spice and rice will nourish your body; the scenery and history will nourish your soul.</p>
+                    </div><br>
+                    
+                </div>
+                <div class="col-md-3">
+                    <h4>Prices Starting From:</h4>
+                    <div class="text-center text-success"><h6>{{2249 | currency }}</h6></div><br><br>
+                    <div><input class="btn btn-primary book" (click)="getitinerary()" value="View Details"></div><br>
+                    <div><input class="btn btn-primary book" value="Book"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- popup for checking itenary -->
+    <p-sidebar [(visible)]="showItinerary" position="bottom">
+        <button class="btn btn-primary" (click)="showItinerary=false">Close</button>
+    </p-sidebar>
+    
+</div>
