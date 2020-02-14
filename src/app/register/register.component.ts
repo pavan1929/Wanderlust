@@ -15,21 +15,26 @@ export class RegisterComponent implements OnInit {
     window.scrollTo(0, 0)
     this.registerForm = this.formbuilder.group({
       username : ['',Validators.required],
-      email : ['', emailMatch,Validators.required],
-      contactNo : ['',Validators.required,Validators.pattern('^[0-9]{10}$')],
+      email : ['', [emailMatch,Validators.required]],
+      contactNo : ['',[Validators.pattern(/^[0-9]{10}$/),Validators.required]],
       password : ['',Validators.required]
     })
   }
 
 }
 function register(){
+  let x: string;
 
 
 }
 function emailMatch(mail:FormControl){
-  console.log("went");
-  let regExp = /^([a-zA-Z\d-\_\.]+)@([a-zA-Z\d_\-\.]+)\.([\a\A]{2,5})$/;
-  return regExp.test(mail.value) ? null : {
+  //
+  //let regExp = /\S+@\S+\.\S+/
+  //let regExp = /^([a-zA-Z\d-\_\.]+)@([a-zA-Z\d-\_\.]+)\.([\a\A]{2,5})$/;
+  let regExp = /\S+@\S+\.([a-z]{2,5})$/;
+  return regExp.test(mail.value) ? {
+    Emailerror:{message:null}
+  } : {
     Emailerror:{message:"Invalid Email Format"}
   }
 }
