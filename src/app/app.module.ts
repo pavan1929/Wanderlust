@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 
 //services
 import { LoginService } from './login/login.service';
+import {RegisterService} from './register/register.service';
 
 //routing
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +50,7 @@ import { RegisterComponent } from './register/register.component';
     SidebarModule,
     ToastModule
   ],
-  providers: [LoginService],
+  providers: [LoginService,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

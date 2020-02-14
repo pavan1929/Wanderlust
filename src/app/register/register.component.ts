@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators, FormControl} from '@angular/forms';
+import {Route,Router} from '@angular/router';
+import {RegisterService} from  './register.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import {FormBuilder,FormGroup,Validators, FormControl} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   registerForm : FormGroup;
   message : string;
-  constructor(private formbuilder: FormBuilder) { }
+  constructor(private formbuilder: FormBuilder, private router:Router, private registerService:RegisterService) { }
 
   ngOnInit() {
     window.scrollTo(0, 0)
@@ -23,8 +25,17 @@ export class RegisterComponent implements OnInit {
 
 }
 function register(){
-  let x: string;
-
+  this.message = "loading"
+    this.registerService.register(this.registerForm.value).subscribe(
+      (response)=>{
+        this.message = "Register Succesful";
+      },
+      (errorResponse)=>{
+        this.message = "Error in registering";
+        sessionStorage.clear()
+        this.router.navigatebyUrl('/login');
+      }
+  )
 
 }
 function emailMatch(mail:FormControl){
